@@ -1,0 +1,19 @@
+{
+  "name": "clase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fork": "pm2 start server.js --name='server1' --watch -- 8081",
+    "cluster": "pm2 start server.js --name='server2' --watch -i max -- 8082"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pm2": "^5.1.0"
+  }
+}
