@@ -4,7 +4,7 @@
 
 **Las dos instancias estarán: una en el puerto 8081 modo fork (parámetro línea de comandos en FORK: cluster interno deshabilitado) y la otra en 8082 modo cluster (parámetro línea de comandos en CLUSTER: cluster interno habilitado). Ambas estarán en modo watch.**<br />
 
-Arranco las 2 sesiones, una en fork y la otra fork.
+Arranco las 2 sesiones, una en fork y la otra en cluster.<br />
 ```npm run fork``` -> Corre el código ```pm2 start server.js --name='server1' --watch -- 8081```<br />
 ```npm run cluster``` -> Corre el código ```pm2 start server.js --name='server2' --watch -i max -- 8082```
 <hr />
@@ -12,7 +12,7 @@ Arranco las 2 sesiones, una en fork y la otra fork.
 **Configurar un servidor Nginx para que las rutas entrantes /info y /randoms por el puerto 80 de Nginx se deriven a esas dos instancias, recibiendo la del modo cluster cuatro veces más de tráfico que la instancia en modo fork.**<br />
 
 Inclui en la carpeta el archivo **nginx.conf** para poder chequearlo.
-La configuración de *http* que puse en **nginx.conf** es:
+La configuración de *http* que puse en **nginx.conf** es esta:<br />
 (Incluyo solo lo que modifique):
 
 ```
